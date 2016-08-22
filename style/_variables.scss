@@ -1,0 +1,37 @@
+$fontMain: 'Lato', sans-serif;
+
+$colorTypography: #c43434;
+$colorRwd: #428e9e;
+$colorUx: #508b61;
+$colorThree: #dfbb42;
+
+$colorPicOne: #8393ca;
+$colorPicTwo: #faad81;
+$colorPicThree: #a3d49c;
+$colorPicFour: #e5b6e7;
+
+$colorList: #7ec8ea;
+
+$colorLightBg: #f1f1f1;
+$colorDarkBg: #4d4149;
+
+$tabletDim: 640px;
+$laptopDim: 1020px;
+
+@mixin font-border-color($color) {
+  border-color: $color;
+  color: $color;
+}
+@mixin nav-colors($color) {
+  background-color: $color;
+  background-color: transparentize($color, .3);
+  border-top: 6px solid darken($color, 10%);
+  border-bottom: 6px solid darken($colorLightBg, 10%);
+}
+@mixin text-colors($color) {
+  border-color: $color;
+  display: none;
+  h2 {
+    color: $color;
+  }
+}

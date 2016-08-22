@@ -1,0 +1,197 @@
+.menu3 {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+  & > div {
+    width: 45vw;
+    height: 45vw;
+    background-color: white;
+    padding: 7px 10px;
+    border-top: 10px solid;
+    &:hover {
+      img {
+        display: none;
+      }
+      p {
+        display: block;
+        font-size: 1em;
+        position: absolute;
+        top: 2.5em;
+        left: 1em;
+        right: 1em;
+        text-align: center;
+      }
+      span {
+        background-color: white;
+        background-color: rgba(255, 255, 255, 0.9);
+        font-weight: 200;
+        text-transform: uppercase;
+        padding: 1px;
+        font-size: 1.3em;
+        line-height: 2;
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
+  p {
+    display: none;
+  }
+}
+
+  .one {
+    border-color: $colorPicOne;
+    margin: 5vh 5vw 5vh 0;
+    max-width: 250px;
+    max-height: 250px;
+    position: relative;
+    color: $colorPicOne;
+    & > div {
+      position: relative;
+      background-image: url("../img/boy.jpg");
+      background-position: 40% 10%;
+      background-size: 500%;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      transition: ease-out 500ms;
+    }
+      &:hover div {
+        border-radius: 50%;
+        text-align: center;
+        @for $i from 1 through 4 {
+          .triangle#{$i} {
+            display: none;
+          }
+        }
+      }
+    }
+    .two {
+      @extend .one;
+      margin: 5vh 0 5vh 5vw;
+      @include font-border-color($colorPicTwo);
+      & > div {
+        background: url("../img/girl.jpg") 60% 37%;
+        background-size: initial;
+      }
+      }
+      .three {
+        @extend .one;
+        @include font-border-color($colorPicThree);
+        & > div {
+          background: url("../img/man.jpg") 60% 15%;
+          background-size: initial;
+        }
+      }
+      .four {
+        @extend .one;
+        @include font-border-color($colorPicFour);
+        margin: 5vh 0 5vh 5vw;
+        & > div {
+          background-image: url("../img/woman.jpg");
+          background-position: 35% 20%;
+          background-size: initial;
+        }
+      }
+
+  .image {
+    @for $i from 1 through 4 {
+      .triangle#{$i} {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 2em 2em 0 0;
+        border-color: #fff transparent transparent transparent;
+        display: inline-block;
+        float: left;
+      }
+    }
+    .triangle2 {
+      border-width: 0 2em 2em 0;
+      border-color: transparent #fff transparent transparent;
+      float: right;
+    }
+    .triangle3 {
+      border-width: 2em 0 0 2em;
+      border-color: transparent transparent transparent #fff;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .triangle4 {
+      border-width: 0 0 2em 2em;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      border-color: transparent transparent #ffffff transparent;
+    }
+  }
+
+
+  @media (min-width: $tabletDim) {
+    .menu3 {
+      display: block;
+      height: auto;
+      min-height: 630px;
+    }
+       .one,  .two,  .three, .four {
+        width: 49%;
+        max-width: 450px;
+        margin-right: 0;
+        display: inline-block;
+        float: left;
+        &:hover {
+          padding-top: 3em;
+          div {
+            width: 150px;
+            height: 150px;
+            background-size: inherit;
+          }
+          p {
+            margin-top: 3em;
+            margin-left: 10em;
+          }
+        }
+        div {
+          background-size: inherit;
+        }
+        &:nth-of-type(2n) {
+          float: right;
+          margin-left: 0;
+        }
+      }
+      .four {
+        div {
+          background-size: cover;
+        }
+      }
+    }
+@media (min-width: $laptopDim) {
+  .menu3 {
+    text-align: center;
+    min-height: 570px;
+    .one, .two, .three, .four {
+      width: 24%;
+      float: none;
+      height: 30em;
+      max-height: none;
+      &:hover {
+        vertical-align: top;
+        padding-top: 1em;
+        & > div {
+          display: block;
+          margin: 0 auto;
+          width: 12em;
+          height: 12em;
+        }
+        p {
+          position: static;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,314 @@
+.menu2 {
+  width: 100vw;
+  height: auto;
+  padding:5vh 0;
+  background-color: $colorLightBg;
+}
+.text {
+  width: 90%;
+  height: 300px; //fallback
+  width: 90vw;
+  height: 70vh;
+  margin: 0 auto;
+  border: 1px solid transparent;
+  background-image: url("../img/text-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-color: rgba(255,255,255,0.8);
+  background-position: bottom center;
+  font-family: $fontMain;
+  &.menu-1 {
+    border-color: $colorRwd;
+    h2 {
+      color: $colorRwd;
+    }
+  }
+  &.menu-2 {
+    @include text-colors($colorTypography);
+  }
+  &.menu-3 {
+    @include text-colors($colorThree);
+  }
+  &.menu-4 {
+    @include text-colors($colorUx)
+  }
+  h2 {
+    font-size: 1.5em;
+    font-weight: 400;
+    padding: 1vh 3vw;
+  }
+  p {
+    padding: 1vh 2vw;
+    font-size: 0.8em;
+    line-height: 1.5;
+  }
+}
+.menu2-menu {
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  div {
+    width: 19vw;
+    height: 18vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: white;
+    max-width: 70px;
+    max-height: 70px;
+  }
+}
+.menu2-active {
+  border: 1px solid;
+  margin-top: -1px;
+  &#menu-1, &#menu-2, &#menu-3, &#menu-4 {
+    color: $colorRwd;
+    background-color: darken($colorLightBg, 5%);
+    border-top-color: transparent;
+  }
+
+  &#menu-2 {
+    color: $colorTypography;
+  }
+  &#menu-3 {
+    color: $colorThree;
+  }
+  &#menu-4 {
+    color: $colorUx;
+  }
+}
+.menu2-bottom, .menu2-top {
+  display: none;
+}
+#menu-1 {
+  background-color: $colorRwd;
+  border-color: $colorRwd;
+}
+#menu-2 {
+  background-color: $colorTypography;
+  border-color: $colorTypography;
+}
+#menu-3 {
+  background-color: $colorThree;
+  border-color: $colorThree;
+}
+#menu-4 {
+  background-color: $colorUx;
+  border-color: $colorUx;
+}
+@media (min-width: $tabletDim) {
+  .menu2 {
+    height: auto;
+    min-height: 560px;
+    width: 100%;
+  }
+ .menu2-menu {
+   display: none;
+ }
+  .menu2-top, .menu2-bottom {
+    display: block;
+    width: 90%;
+    height: 90px;
+    margin: 0 auto;
+    div {
+      width: 40%;
+      display: inline-block; //fbk
+      font-size: 2.3em;
+      text-transform: uppercase;
+      font-weight: 300;
+      height: 90px;
+      text-align: center;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      z-index: -1;
+      &:first-of-type {
+        float: left;
+      }
+      &:last-of-type {
+        float: right;
+      }
+      &.active {
+        padding: 0;
+      }
+    }
+  }
+  .menu2-active {
+    @for $i from 1 through 4 {
+    &#menu-#{$i} {
+      background-color: #fdfdfd;
+      z-index: 2;
+      @if $i == 1 {
+        border-top-color: $colorRwd;
+        border-bottom: none;
+      }
+      @else if($i == 2) {
+        border-top-color: $colorTypography;
+        border-bottom: none;
+      }
+      @else if($i == 3) {
+        border-bottom-color: $colorThree;
+        border-top: none;
+        background-color: darken($colorLightBg, 5%);
+      }
+      @else {
+        border-bottom-color: $colorUx;
+        border-top: none;
+        background-color: darken($colorLightBg, 5%);
+      }
+    }
+    }
+  }
+  .text {
+    max-height: 300px;
+    border-color: $colorRwd;
+    z-index: 0;
+    margin-top: -2px;
+    h2 {
+      font-size: 2em;
+    }
+    p {
+      font-size: 0.95em;
+    }
+  }
+}
+@media (min-width: $laptopDim) {
+  .menu2-top div, .menu2-bottom div {
+    width: 25%;
+    font-size: 25px;
+    position: relative;
+    z-index: 0;
+    &.menu2-active {
+      &:before {
+        content: " ";
+        width: 78%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        height: 90px;
+        border-bottom: 1px solid $colorRwd;
+      }
+      &::before {
+        content: " ";
+        width: 78%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        height: 90px;
+        border-bottom: 1px solid $colorRwd;
+      }
+      &::after {
+        content: " ";
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        height: 59px;
+        border-right: 1px solid $colorRwd;
+      }
+      &:after {
+        content: " ";
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        height: 59px;
+        border-right: 1px solid $colorRwd;
+      }
+    }
+  }
+  .menu2-top {
+    margin-bottom: -2em;
+  }
+  .menu2-bottom {
+    margin-top: -2em;
+  }
+  .menu2-active {
+    @for $i from 1 through 4 {
+      &#menu-#{$i} {
+        z-index: 2;
+        @if $i == 1 {
+          border-right: none;
+        }
+        @else if($i == 2) {
+          border-left: none;
+          &:before {
+            left: 22.5%;
+            border-bottom: 1px solid $colorTypography;
+          }
+          &::before {
+            left: 22.5%;
+            border-bottom: 1px solid $colorTypography;
+          }
+          &:after {
+            border-left: 1px solid $colorTypography;
+            border-right: none;
+          }
+          &::after {
+            border-left: 1px solid $colorTypography;
+            border-right: none;
+
+          }
+        }
+        @else if($i == 3) {
+          border-right: none;
+          &:before {
+            border-top: 1px solid $colorThree;
+            width: 78.1%;
+            border-bottom: none;
+          }
+          &::before {
+            border-top: 1px solid $colorThree;
+            width: 78.1%;
+            border-bottom: none;
+          }
+          &:after {
+            border-right: 1px solid $colorThree;
+            top: 32px;
+            height: 57px;
+          }
+          &::after {
+            border-right: 1px solid $colorThree;
+            top: 32px;
+            height: 57px;
+          }
+        }
+        @else {
+          border-bottom-color: $colorUx;
+          border-top: none;
+          border-left: none;
+          &:before {
+            border-top: 1px solid $colorUx;
+            width: 78.1%;
+            left: 22%;
+          }
+          &::before {
+            border-top: 1px solid $colorUx;
+            width: 78.1%;
+            left: 22%;
+          }
+          &:after {
+            border-left: 1px solid $colorUx;
+            top: 32px;
+            border-right: none;
+          }
+          &::after {
+            border-right: 1px solid $colorUx;
+            top: 32px;
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+  .text {
+    position: relative;
+    z-index: 1;
+    width: 55%;
+  }
+}

@@ -1,0 +1,122 @@
+.slider {
+  background-image: url("../img/slider-tp.jpg");
+  background-position: center center;
+  width: 100vw;
+  height: 80vh;
+  max-width: 1500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  h1 {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    text-align: center;
+    text-align: -webkit-center;
+    font-size: 2.3em;
+    padding: 2em 0.5em 0 0.5em;
+    height: 50%;
+    display: none;
+    &.title-active{
+      display: block;
+    }
+    @media (orientation:landscape) {
+      font-size: 2em;
+      padding-top: 1.5em;
+    }
+  }
+  img {
+    display: none;
+  }
+  span {
+    display: block;
+    width: 80vw;
+    height: 7vh;
+    margin: 3vh auto;
+    padding: 1vh 3vw;
+    text-align: center;
+    color: white;
+    font-size: 3.5vh;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+  }
+}
+.tp {
+  span {
+    background-color: $colorTypography;
+  }
+}
+.rwd{
+  span {
+    background-color: $colorRwd;
+  }
+}
+.ux {
+  span {
+    background-color: $colorUx;
+  }
+}
+.home-menu {
+  margin-top: 10vh;
+  div {
+    opacity: 0.5;
+  }
+  .active {
+    opacity: 1;
+  }
+}
+@media (min-width: $tabletDim) {
+  .home {
+    width: 100%;
+  }
+  .slider {
+    width:100%;
+    h1 {
+      font-size: 3.5em;
+      padding: 10% 20% 5% 20%;
+      @media (orientation:landscape) {
+        font-size: 2em;
+        padding-top: 1.5em;
+      }
+    }
+  }
+  .home-menu {
+    width: 93%;
+    margin: 5% auto;
+    text-align: center;
+    &> div {
+      display: inline-block;
+      width: 33%;
+      font-size: 0.6em;
+      span {
+        width: 100%;
+        max-width:230px;
+        font-size: 1.6em;
+        height: 2em;
+        margin-top: 0;
+      }
+      img {
+        display: inline-block;
+        margin-bottom: -2px;
+      }
+    }
+  }
+}
+@media (min-width: $laptopDim) {
+  .slider {
+    h1 {
+      font-size: 3em;
+      padding: 2em 2em 3em 2em;
+      height: 65%;
+    }
+  }
+  .home-menu > div {
+      span {
+        float: left;
+        margin-top: 50px;
+        width: 15em;
+        padding: 0.3em 1em;
+      }
+      img {
+        float: left;
+      }
+    }
+  }

@@ -1,0 +1,79 @@
+.list {
+  width: 100vw;
+  height: 95vh;
+  text-align: left;
+  img {
+    vertical-align: sub;
+  }
+  ol {
+    width: 100vw;
+    background-color: $colorList;
+    padding: 0 10vw;
+    font-size: 9vh;
+    letter-spacing: 8px;
+    font-style: italic;
+  }
+  li {
+    background-color: white;
+    list-style: none;
+    padding: 1vh 5vw;
+    text-indent: -1em;
+    padding-left: 2em;
+    span::after {
+      content: '.';
+    }
+    span:after {
+      content: '.';
+    }
+
+    &:first-of-type {
+      padding-top: 2vh;
+    }
+    &:last-of-type {
+      padding-bottom: 2vh;
+    }
+  }
+  @media (min-width: $tabletDim) {
+    height: auto;
+    padding-bottom: 2em;
+    ol {
+      padding: 0 0.3em;
+      font-size: 3em;
+    }
+    li {
+      text-indent: -5.5em;
+      padding-left: 7em;
+      span {
+        margin-right: 1em;
+        font-size: 2em;
+        font-weight: 700;
+        padding: 0 0.5em 0 0.5em;
+        border-bottom: 10px solid darken($colorList, 10%);
+        &:after {
+          content: " ";
+        }
+        &::after {
+          content: " ";
+        }
+      }
+    }
+  }
+  @media (min-width: $laptopDim) {
+    height: 30em;
+    background-color: white;
+    display: inline-block;
+    width: 33%;
+    vertical-align: top;
+    ol {
+      width: 100%;
+      font-size: 2.2em;
+    }
+    li {
+      font-size: 0.8em;
+      padding: 0 0 0 7em;
+    }
+    span {
+      border-bottom: 7px solid darken($colorRwd, 10%);
+    }
+  }
+}

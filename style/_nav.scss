@@ -1,0 +1,97 @@
+.nav {
+  width: 100%;
+  width: 100vw;
+  height: 11vh;
+  padding: 1vh 3vw;
+  display: flex;
+  justify-content: space-between;
+  img {
+    height: 90%;
+  }
+  &.sticky {
+    position: fixed;
+    top: 0;
+    z-index: 6;
+    background-color: white;
+    background-color: rgba(255,255,255,.7);
+  }
+}
+.nav-menu {
+  font-size: 5vh;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  span {
+    display: none;
+    background: white;
+    position: relative;
+    width: 4em;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 2;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    font-weight: 100;
+    &:last-of-type {
+      border-bottom: 1px solid black;
+    }
+    &:hover {
+      @include nav-colors($colorThree);
+      color: white;
+      text-shadow: none;
+      font-weight: 100;
+      margin-top: -6px;
+      text-align: center;
+    }
+    &.nav-menu2:hover {
+      @include nav-colors($colorTypography)
+    }
+    &.nav-menu3:hover {
+      @include nav-colors($colorUx)
+    }
+    &.nav-menu4:hover {
+      @include nav-colors($colorRwd)
+    }
+    &.nav-menu5:hover {
+      @include nav-colors($colorPicOne)
+    }
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    font-family: $fontMain;
+    font-size: 7vh;
+  }
+}
+@media (min-width: $laptopDim) {
+  .nav {
+    width: 100%;
+    padding: 0;
+    position: static;
+    img {
+      padding: 1em 1em 0 1em;
+    }
+  }
+  .nav-menu {
+  display: inline-block;
+    span {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 18px;
+      text-shadow: 1px 1px 3px $colorLightBg;
+      float: left;
+      padding: 1.5em 1em 1em 1em;
+      height: 120%;
+      width: 6em;
+      transition: ease 300ms;
+      border: none;
+      background: none;
+      &:last-of-type {
+        border: none;
+      }
+    }
+    a {
+      display: none;
+    }
+  }
+}

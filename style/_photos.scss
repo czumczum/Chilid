@@ -1,0 +1,141 @@
+.horizontal {
+  text-align: center;
+}
+.menu4 {
+  width: 100vw;
+  max-width: 1500px;
+  height: auto;
+}
+.menu4-image {
+  background-image: url("../img/photo-1.jpg");
+  width: 320px;
+  height: 407px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 4vh auto;
+  //greyscale support:
+  -webkit-filter: grayscale(100%);
+  -webkit-filter: grayscale(1);
+  filter: grayscale(100%);
+  filter: url('../img/gray.svg#grayscale');
+  filter: gray;
+  display: flex;
+  align-items: flex-end;
+  &:nth-of-type(2n+2) {
+    background-image: url("../img/photo-2.jpg");
+    overflow: hidden;
+    align-items: flex-start;
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { //greyscale for ie 10&11
+      background-image: none;
+    }
+  }
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { //greyscale for ie 10&11
+    background-image: none;
+    overflow: hidden;
+  }
+  img {
+    height: 100%;
+    display: none;
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { //greyscale for ie 10&11
+      display: inherit;
+      height: 760px;
+    }
+  }
+}
+.triangle-1 {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 40vh 0 0 320px;
+  border-color: transparent transparent transparent $colorLightBg;
+  opacity: 0.7;
+  h1 {
+    position: absolute;
+    top: 1.4em;
+    left: 0;
+    padding-left: 15vw;
+    font-size: 10em;
+    font-weight: 100;
+  }
+}
+.triangle-2 {
+  @extend .triangle-1;
+  border-width: 40vh 320px 0 0;
+  border-color: #dedede transparent transparent transparent;
+  h1 {
+    top: -0.3em;
+  }
+}
+@media (min-width: $tabletDim) {
+  .menu4 {
+    width: 100%;
+    display: block;
+    height: auto;
+    min-height: 545px;
+    @media (min-width: 680px) { //min width where both pic fit
+      padding: 0 1em;
+    }
+    @media (min-width: 800px) { //because of fixed pics dim
+      padding: 0 2em;
+    }
+    @media (min-width: 900px) { //because of fixed pics dim
+      padding: 0 3em;
+    }
+
+  }
+  .menu4-image {
+    display: inline-block;
+    z-index: 0;
+    float: left;
+    &:last-of-type {
+      float: right;
+    }
+  }
+  .triangle-1 {
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    h1 {
+      top: -1.2em;
+      left: -2.3em;
+      @media (min-width: 800px) { //because of fixed pics dim
+        left: -2.5em;
+      }
+    }
+  }
+  .triangle-2 {
+    top: 0;
+    h1 {
+      top: -1.7em;
+      left: -0.3em;
+      @media (min-width: 800px) { //because of fixed pics dim
+        top: -1.8em;
+        left: -0.4em;
+      }
+    }
+  }
+}
+@media (min-width: $laptopDim) {
+  .menu4 {
+    display: inline-block;
+    width: auto;
+    padding: 0 0 0 1em;
+    vertical-align: top;
+    .menu4-image {
+      width: 20em;
+      height: 30em;
+      max-width: none;
+      background-size: cover;
+      margin-top: 0;
+      margin-right: 0.5em;
+      float: left;
+    }
+    .triangle-1 h1 {
+      left: -2.8em;
+    }
+    .triangle-2 h1 {
+      left: -0.8em;
+    }
+  }
+}
